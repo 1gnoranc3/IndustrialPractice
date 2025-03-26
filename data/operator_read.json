@@ -1,0 +1,8 @@
+{
+  "permissions" : "rx",
+  "user" :
+  {
+    "login" : "operator_read",
+    "role" : 1
+  }
+}

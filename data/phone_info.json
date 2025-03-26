@@ -1,0 +1,17 @@
+{
+  "active_audio_equipment": "handset",
+  "address_info": "1@172.30.181.127",
+  "allowed_call_accounts": [
+    {
+      "description": "SIP",
+      "enabled": true,
+      "extra_params_supported": true,
+      "id": "SIP"
+    }
+  ],
+  "mic_state": "on",
+  "presence_state": "free",
+  "presentation_channel_state": "inactive",
+  "presentation_enabled": false,
+  "presentation_state": "inactive"
+}
