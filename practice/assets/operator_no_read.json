@@ -1,8 +1,0 @@
-{
-  "permissions" : "wx",
-  "user" :
-  {
-    "login" : "operator_read",
-    "role" : 1
-  }
-}
