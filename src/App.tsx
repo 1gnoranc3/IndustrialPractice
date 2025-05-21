@@ -1,14 +1,15 @@
-// App.tsx
+
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
 import { checkAccess } from './authUtils';
-import { UserData } from './types';
+import { UserData } from './types/user/types';
 
 // Импортируйте нужного пользователя (меняйте путь при необходимости)
-import userData from "../public/assets/operator_read.json";
+import userData from "../public/assets/operator_no_read.json";
 
 const AddressBookPage = () => <div>Address Book</div>;
 const ErrorPage = () => <div>Access Denied</div>;
+const NotFoundPage = () => <div>404 - Page Not Found</div>;
 
 export const App = () => {
   const hasAccess = checkAccess(userData as UserData);
@@ -35,6 +36,9 @@ export const App = () => {
         path="/"
         element={<Navigate to={hasAccess ? '/addressBook' : '/error'} replace />}
       />
+      <Route
+        path="*"
+        element={<NotFoundPage />} />
     </Routes>
   );
 };
