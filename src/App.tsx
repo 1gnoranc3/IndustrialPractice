@@ -2,7 +2,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
 import { checkAccess } from './authUtils';
-import { UserData } from './types/user/types';
+import { UserData } from './types/user';
 
 // Импортируйте нужного пользователя (меняйте путь при необходимости)
 import userData from "../public/assets/operator_no_read.json";

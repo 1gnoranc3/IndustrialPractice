@@ -1,4 +1,4 @@
-import { UserData, UserRole, Permission } from './types/user/types';
+import { UserData, UserRole, Permission } from './types/user';
 
 export const checkAccess = (userData: UserData): boolean => {
   const { role } = userData.user;
