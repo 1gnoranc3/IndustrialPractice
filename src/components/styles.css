@@ -1,64 +1,45 @@
 /* Глобальное объявление шрифта */
 body {
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: 0;
   color: #121C2B;
 }
 
 /* Корневой контейнер */
 .layout-root {
   min-height: 100dvh;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  background: #fff;
-  overflow-x: hidden;
 }
 
 /* Шапка */
 .header {
-  width: 100%;
-  height: 3.33vw;
+  height: 64px;
   background: #121C2B;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 0 0 1.25vw;
-  box-sizing: border-box;
-  z-index: 2;
 }
 
 .company-logo {
-  width: 1.35vw; /* 26px / 1920px * 100 */
-  height: 1.67vw; /* 32px / 1920px * 100 */
-  min-width: 26px;
-  min-height: 32px;
-  max-width: 26px;
-  max-height: 32px;
-  margin-left: 0;
-  margin-top: 0.83vw; /* 16px / 1920px * 100 */
-  margin-bottom: 0.83vw; /* 16px / 1920px * 100 */
-  border-radius: 0.14vw; /* 2.62px / 1920px * 100 */
-  box-sizing: border-box;
-  display: block;
+  width: 26px;
+  height: 32px;
+  margin-left: 24px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-radius: 3px;
 }
 
 .profile {
-  width: 13.7vw; /* 263px / 1920px * 100 */
-  margin: 0.63vw 1.88vw 0.63vw auto; /* 12px сверху/снизу, 36px справа, auto слева */
+  width: 263px;
+  margin: 12px 36px 12px auto;
   color: #fff;
-  font-size: 0.73vw; /* 14px / 1920px * 100 */
-  line-height: 0.94vw; /* 18px / 1920px * 100 */
+  font-size: 14px;
+  line-height: 18px;
   text-align: right;
-  vertical-align: middle;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.14vw;
+  gap: 2px;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -71,49 +52,65 @@ body {
   display: flex;
   flex: 1 1 0;
   min-height: 0;
+  overflow: hidden;
+  flex-direction: row;
 }
 
 /* Сайдбар */
 .sidebar {
-  width: 17.08vw; /* 328px / 1920px * 100 */
+  width: 328px;
+  min-width: 328px;
+  max-width: 328px;
   background: #F8F8F8;
   display: flex;
   flex-direction: column;
   margin-top: 0;
   box-sizing: border-box;
-  height: 100dvh;
+  height: 100%;
+  flex-shrink: 0;
 }
 
 .menu-item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0.42vw; /* 8px / 1920px * 100 */
-  width: 15.42vw; /* 296px / 1920px * 100 */
-  min-height: 2.08vw; /* 40px / 1920px * 100 */
-  margin: 1.46vw 0 0 0.83vw; /* 28px сверху (от шапки), 16px слева */
-  border-radius: 0.42vw; /* 8px / 1920px * 100 */
-  gap: 0.63vw; /* 12px / 1920px * 100 */
-  background: #5D9AF4;
+  padding: 8px;
+  width: 296px;
+  min-height: 40px;
+  margin: 28px 0 0 16px;
+  border-radius: 8px;
+  gap: 12px;
   box-sizing: border-box;
+  background: transparent;
+  border: 1.5px solid #121C2B;
+}
+
+.menu-item.active {
+  background: #5D9AF4;
+  color: #fff;
+  border: none;
 }
 
 .menu-icon {
-  width: 1.25vw; /* 24px / 1920px * 100 */
-  height: 1.25vw; /* 24px / 1920px * 100 */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) saturate(100%);
+  border-radius: 6px;
+  transition: filter 0.2s;
+}
+
+.menu-item.active .menu-icon {
+  filter: none;
 }
 
 .menu-link {
   font-weight: 500;
-  font-size: 0.73vw; /* 14px / 1920px * 100 */
-  line-height: 0.94vw; /* 18px / 1920px * 100 */
+  font-size: 14px;
+  line-height: 18px;
   vertical-align: middle;
   display: flex;
   align-items: center;
-  color: #FFFFFF;
+  color: inherit;
   text-decoration: none;
   flex: none;
   order: 1;
@@ -122,13 +119,14 @@ body {
 
 /* Основная рабочая область */
 .main {
-  flex: 1 1 0;
+  flex: 1 1 auto;
   background: #fff;
-  padding: 2.5vw;
+  padding: 32px;
   box-sizing: border-box;
-  max-width: 90vw;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   width: 100%;
   min-height: 0;
+
 }
 
