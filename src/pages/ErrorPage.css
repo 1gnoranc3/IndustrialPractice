@@ -12,8 +12,24 @@
 }
 
 .error-page-message {
-  font-size: 18px;
+  font-size: 14px;
   margin-top: 16px;
-  color: #5D9AF4;
+  font-weight: 400;
+  color: #152132;
 }
 
+.error-page-code
+{
+  font-size: 96px;
+  font-weight: 700;
+  top: 443px;
+  left: 877px;
+  color: #E0EDFF;
+}
+
+.error-page-title{
+  font-size: 24px;
+  font-weight: 500;
+  top: 572px;
+  left:849px;
+}

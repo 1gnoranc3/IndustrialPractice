@@ -13,7 +13,7 @@ export const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/assets/operator_read.json')
+    fetch('/assets/operatorrr_read.json')
       .then((res) => res.json())
       .then((data) => {
         setUserData(data);
@@ -22,7 +22,8 @@ export const App = () => {
       .catch(() => setLoading(false));
   }, []);
 
-  if (loading || !userData) return null;
+  if (loading) return null;
+  if (!userData) return <ErrorPage code={500} message="Не удалось загрузить данные пользователя" />;
 
   const hasAccess = checkAccess(userData as UserData);
 
@@ -40,7 +41,7 @@ export const App = () => {
         <Route path="somethingElse" element={<div>тестики тестики</div>} /> //строка для проверки работы роутинга
         <Route index element={<Navigate to={hasAccess ? '/addressBook' : '/error'} replace />} />
       </Route>
-      <Route path="error" element={<ErrorPage code={403} message="У вас нет прав для просмотра этой страницы" />} />
+      <Route path="error" element={<ErrorPage code={403} message="У Вас недостаточно прав для просмотра этой страницы" />} />
       <Route path="*" element={<ErrorPage code={404} message="Страница не найдена" />} />
     </Routes>
   );
