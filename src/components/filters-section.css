@@ -1,0 +1,117 @@
+.filters-section {
+  margin-bottom: 24px;
+}
+
+.filters-title {
+  width: 95px;
+  Height: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #283449;
+  margin: 0 0 16px 0;
+}
+
+.filters-row {
+  display: flex;
+  gap: 24px;
+}
+
+.contactType {
+  display: flex;
+  margin: 16px 0 16px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.messaging {
+  display: flex;
+  margin: 16px 0 16px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.groupView {
+  display: flex;
+  margin: 44px 0 16px 0;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+}
+
+.groupView label {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  color: #283449;
+  letter-spacing: 0.25px;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.contactType h3,
+.messaging h3,
+.groupView h3 {
+  font-weight: 700;
+  font-size: 16px;
+  color: #121C2B;
+  margin: 0;
+}
+
+.contactType label,
+.messaging label {
+  font-weight: 400;
+  font-size: 14px;
+  color: #78808C;
+  letter-spacing: 0.25px;
+  font-family: 'Roboto', sans-serif;
+  margin-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactType select,
+.messaging select {
+  width: 172px;
+  height: 36px;
+  padding-left: 12px;
+  padding-right: 40px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid #C2CFE0;
+  font-size: 14px;
+  background: url('../../public/assets/images/arrow.svg') no-repeat right 12px center/24px 24px, #fff;
+  color: #121C2B;
+  outline: none;
+  transition: border 0.2s;
+  margin-top: 8px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.contactType select:focus,
+.messaging select:focus {
+  border-color: #5D9AF4;
+}
+
+.groupView input[type="checkbox"] {
+  width: 36px;
+  height: 20px;
+}
+
+.groupView img {
+  width: 30px;
+  height: 20px;
+}
+
+.group-checkbox-img {
+  width: 36px !important;
+  height: 20px !important;
+  object-fit: contain;
+}
+
