@@ -1,44 +1,49 @@
-
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
 import { checkAccess } from './authUtils';
 import { UserData } from './types/user';
+import Layout from './components/Layout';
 
-// Импортируйте нужного пользователя (меняйте путь при необходимости)
-import userData from "../public/assets/operator_no_read.json";
-
-const AddressBookPage = () => <div>Address Book</div>;
-const ErrorPage = () => <div>Access Denied</div>;
-const NotFoundPage = () => <div>404 - Page Not Found</div>;
+import AddressBookPage from './pages/AddressBookPage';
+import ErrorPage from './pages/ErrorPage';
 
 export const App = () => {
+  const [userData, setUserData] = useState<UserData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/assets/operatorrr_read.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setUserData(data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
+
+  if (loading) return null;
+  if (!userData) return <ErrorPage code={500} message="Не удалось загрузить данные пользователя" />;
+
   const hasAccess = checkAccess(userData as UserData);
 
   return (
     <Routes>
-      <Route
-        path="/addressBook"
-        element={
-          <ProtectedRoute hasAccess={hasAccess} redirectPath="/error">
-            <AddressBookPage />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/error"
-        element={
-          <ProtectedRoute hasAccess={!hasAccess} redirectPath="/addressBook">
-            <ErrorPage />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/"
-        element={<Navigate to={hasAccess ? '/addressBook' : '/error'} replace />}
-      />
-      <Route
-        path="*"
-        element={<NotFoundPage />} />
+      <Route path="/" element={<Layout userData={userData} />}>
+        <Route
+          path="addressBook"
+          element={
+            <ProtectedRoute hasAccess={hasAccess} redirectPath="/error">
+              <AddressBookPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="somethingElse" element={<div>тестики тестики</div>} /> //строка для проверки работы роутинга
+        <Route index element={<Navigate to={hasAccess ? '/addressBook' : '/error'} replace />} />
+      </Route>
+      <Route path="error" element={<ErrorPage code={403} message="У Вас недостаточно прав для просмотра этой страницы" />} />
+      <Route path="*" element={<ErrorPage code={404} message="Страница не найдена" />} />
     </Routes>
   );
 };
+

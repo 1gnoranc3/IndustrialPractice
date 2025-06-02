@@ -2,7 +2,7 @@
   "permissions" : "wx",
   "user" :
   {
-    "login" : "operator_read",
+    "login" : "operator_no_read",
     "role" : 1
   }
 }
